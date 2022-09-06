@@ -1,0 +1,16 @@
+
+3. (1.0) Para eliminar un registro en un archivo secuencial se puede hacer.
+A.	Eliminar directamente por una clave.
+B.	Encontrando el registro que tenga la información a eliminar y eliminandolo directamente.	
+C.	Empezando a leer desde el primer registro hasta encontrar el registro a eliminar 
+(todos los registros anteriores se guardan en un archivo temporal), no guardarlo y pasar al 
+siguiente y seguir con el proceso.
+D.	Empezando a leer desde el primer registro hasta encontrar el registro a eliminar (todos 
+los registros anteriores se guardan en un archivo temporal), eliminarlo directamente y seguir
+ con el proceso.
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+La solucion en este punto es la C, porque los archivos secuenciales al momento de borrar un registro
+tienen que guardar los datos que no quieren borrar en un archivo temporal para luego actualizarlo
+sin el registro que se queria borrar :D
