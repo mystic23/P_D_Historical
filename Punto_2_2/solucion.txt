@@ -1,0 +1,109 @@
+Inicio
+Buffer
+    Asignatura
+    Dispositivo Disco
+        Reg_Asignatura
+        Codigo_A N[ ]
+        Nombre_A X[ ]
+        Curso N[ ]
+        Credito N[ ]
+        Cedula_P N[ ]
+        Clave principal: Codigo_A
+        Clave secundaria Cedula_P
+Finbuffer
+
+Buffer
+    Profesores
+    Dispositivo Disco
+    Reg_Profesores
+        Nombre_P N[ ]
+        Cedula_P N[ ]
+        Fecha_I X[ ]
+        Fecha_N N[ ]
+        Categoria N[ ]
+        Clave principal: Cedula_P
+Fin buffer
+entero cedula
+Escribir("Digite la Cedula")
+Leer cedula
+
+//Aquí lleno el vector del 1 al 4, esto se usara para las categorias
+
+Para i = 1 hasta 4
+    C[i] ← 0
+Finpara
+
+//Aqui lo que hacemos es que, primero no tenemos que recorrer todo 
+el archivo como en archivos secuenciales , sino que directamente
+hacemos la comparacion con la clave principal y la busqueda tanto en
+el registro de profesores como en el de la asignatura, si 
+ambas coinciden se muestra lo que estan pidiendo, de lo contrario
+solo es decir que la cedula no esta en el registro 
+
+Abrir Profesores ("r")
+Abrir Asignatura ("r")
+
+Leer Reg_Profesores
+Si(Reg_Profesores.Cedula_P = cedula )
+    Leer Reg_Profesores.Cedula_P = cedula
+    Escribir ( Nombre_P,
+                Cedula_P,
+                Fecha_I,
+                Fecha_N,
+                Categoria)
+Sino
+    Escribir("Error en busqueda, la cedula no fue encontrada")
+
+FinSi
+Cerrar Profesores
+
+Leer Reg_Asignatura
+Si(Reg_Asignatura.Cedula_P = cedula)
+    Leer Reg_Asignatura.Cedula_P = cedula
+    Escribir ( Nombre_A )
+Sino
+    Escribir("Error en busqueda, la cedula no fue encontrada")
+
+FinSi
+Cerrar Asignatura
+
+Abrir Profesores("r")
+Leer Reg_Profesores
+
+
+///Aqui haremos uso del vector que llenamos anteriormente usando 
+un contador a cada espacio del vector y mediante el case se le asignatura
+la ruta para decir a que categoria pertenece
+Mientras(!Eof(Profesores))
+    Dd(Categoria)
+        Case "Catedrático"
+            C[1] <- C[1]+1
+        Case "Titular"
+            C[2] <- C[2]+1
+        Case "Asociado" 
+            C[3] <- C[3]+1
+        Case "Ayudante"
+            C[4]] <- C[4]+1
+    FinDd
+FinMq
+
+Cerrar Profesores
+
+//Ahora organizaremos el vector para que siempre la categoria
+que haya tenido mayor numero sea la que quede en la posicioón
+C[4], llame al vector C haciendo referencia a la categoria
+[[[[Caso Generico]]]]
+
+para i = 1 hasta 3 con paso 1
+    para j = 1 hasta 3-1 con paso 1
+        Si(C[j]<C[j+1])
+            cambio <- C[j+1]
+            C[j+1] <- C[j]
+            C[j] <- cambio
+        FinSi
+    Finpara
+Finpara
+
+Escribir("La categoria con mayor personal es: " , C[4])
+////Solucion a la repsuesta de opcion multiple
+Escribir(" La categoria que tiene mayor sueldo es la de Catedratico")
