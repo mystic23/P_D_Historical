@@ -1,0 +1,30 @@
+Una aplicación informática de un centro universitario dispone de la siguiente 
+información sobre una carrera:
+
+Por cada asignatura:
+a) código de asignatura (único);
+b) nombre de la asignatura;
+c) curso;
+d) créditos;
+e) cédula del profesor que la imparte.
+
+Por cada profesor:
+a) nombre del profesor
+b) cedula;
+c) fecha de ingreso en la Universidad;
+d) fecha de nacimiento;
+e) categoría (catedrático, titular, asociado o ayudante).
+
+Usted debe definir la estructura de sus archivos y que tipo de organización usará. 
+Se requiere un algoritmo para realizar las siguientes consultas.
+
+Consultas:
+Dada una cédula, diga la información del profesor y cuáles son los nombres de las asignaturas y
+ cursos que esté tiene a su cargo (tener en cuenta que nombre de la asignatura no es lo mismo que cursos).
+
+¿Cuál es la categoría con mayor personal en la institución?¿Cuál es la categoría que mayor sueldo tiene?.
+ El sueldo base anual depende de la categoría:
+a) Catedrático: 20000 euros
+b) Titular: 15000 euros
+c) Asociado: 10000 euros
+d) Ayudante: 8000 euros

@@ -1,0 +1,6 @@
+10  Chicharito  380	PuraSangre
+20  Bombonero   420 andaluz
+30  Arrebato    350	criollo
+40  Palomo  500 Morgan
+50  Blanco  450 PuraSangre
+

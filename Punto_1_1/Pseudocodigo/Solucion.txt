@@ -167,7 +167,7 @@ Escribir reg_caballos
 }
 
 EndOfFile Caballos
-ss
+
 FinAlgoritmo
 
 

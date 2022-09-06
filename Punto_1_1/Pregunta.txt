@@ -1,0 +1,36 @@
+Pregunta:
+
+1.	(2.0) En un torneo Hípico se realizan 10 carreras de caballos, de las cuales se cuenta con un archivo secuencial,
+ ordenado por número de la carrera, donde se almacenan los dos primeros caballos ganadores de cada carrera.
+Los campos del archivo son:  
+
+Ganan
+Nro de la carrera	Nombre del Jockey	Número del caballo	Distancia recorrida (m)	Tiempo (seg)
+
+Ejemplo de datos que podría contener el archivo Ganan 
+1	Pablo	10	10	5
+1	Román	20	10	6
+2	Román	20	15	7
+2	Mauro	30	15	8
+3	Pablo	10	12	7
+3	Román	20	12	9
+Etc
+
+Se cuenta, también, con un archivo secuencial que contiene los datos de los caballos participantes en el torneo.  
+Los campos de sus registros son:
+
+Caballos
+Número del caballo	Nombre	Peso	Raza
+ 
+Ejemplo de datos que podría contener el archivo Caballos 
+
+10	Chicharito	380	Pura Sangre
+20	Bombonero	420	andaluz
+30	Arrebato	350	criollo
+40	Palomo	500	Morgan
+50	Blanco	450	Pura Sangre
+etc
+
+Hacer un algoritmo que calcule la velocidad (m/s) de cada caballo por carrera, después sume las velocidades por caballo 
+(por todas las carreras) y escriba la información del caballo que obtuvo la menor velocidad total.
+
