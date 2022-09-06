@@ -1,0 +1,174 @@
+->Lo primero que realizare es instanciar ambos archivos  el de 
+Gnadores y el de Caballlos
+
+Inicio
+Buffer
+    Ganadores
+    Dispotisivo Disco
+    reg_ganadores
+        NroCarrera S[2]
+        NomJock S[12]
+        NumCab I[2]
+        DistRec I[3]
+        Temp I[3]
+EndBuffer
+
+Buffer
+    Caballos
+    Dispotisivo Disco
+    reg_caballos 
+        NumCab I[2]
+        NomCab S[12]
+        pesoCab F[5]
+        razaCab S[10]
+EndBuffer
+
+ 
+Abrir Caballos (“r”)
+i = 0 
+
+    Leer Reg_Caballos 
+    while (!EndOfFile(Caballos)) {
+
+        -> Lo que hago aquí es  recorrer el archivo mientras que no termine
+        y mientras eso pasa le voy asignando a cada posición su propio campo 
+        dentro de una matriz
+
+        i = i +1
+        Mat[ i ][ 1 ] = Num_Caballo
+        Mat[ i ][ 2 ] = Nombre
+        Mat [ i ][ 3 ] = Peso
+        Mat[ i ][ 4 ] = Raza
+        Leer Reg_Caballos
+
+}
+EndOfFile Caballos
+
+// Cierro el archivo de Caballos ya que los datos del archivo 
+con cada uno de sus campos ya estan guardados en una matriz, lo 
+que se hara ahora es organizar cada uno de los valores de su campo 
+con un algoritmo de ordenamiento haciendo la condicion desde el [2][1]
+y le voy asigando el valor a la variable aux, lo rodenamos porque
+implicitamente no dice que el archivo este organizado mientras que el de
+ganadores si lo dice 
+
+for ( k=1 ; k ≤ i-1; k++){
+    for (j=1; j ≤ i-1-k; j++){
+        if (Mat[ j+1 ][ 1 ] < Mat[ j ][ 1 ]) {
+            aux ← Mat[ j+1 ][ 1 ]
+                Mat[ j+1 ][ 1 ] ← Mat[ j ][ 1 ]
+                Mat[ j ][ 1 ] ← aux
+
+                aux ← Mat[ j+1 ][ 2 ]
+                Mat[ j+1 ][ 2 ] ← Mat[ j ][ 2 ]
+                Mat[ j ][ 2 ] ← aux
+                
+                aux ← Mat[ j+1 ][ 3 ]
+                Mat[ j+1 ][ 3 ] ← Mat[ j ][ 3 ]
+                Mat[ j ][ 3 ] ← aux
+                
+                aux ← Mat[ j+1 ][ 4 ]
+                Mat[ j+1 ][ 4 ] ← Mat[ j ][ 4 ]
+                Mat[ j ][ 4 ] ← aux
+        }
+    }
+}
+
+//En las siguientes lineas de codigo se abrira el archivo y mientras
+que no sea el final del archivo va a preguntar en un dependiendo de 
+lo que se le quiera asignar al caballo en la posicion i la cual es
+un contador
+
+Abrir Caballos (“w”)
+Leer Reg_Caballos 
+    while (!EndOfFile(Caballos)){
+        for ( k=1 ; k ≤ i; k++){
+            for (j=1; j ≤ 4; j++){
+                switch(j) {
+                    Case 1 
+                        Num_Caballo = Mat[ i ][ 1 ] 
+                    Case 2
+                        Nombre = Mat[ i ][ 2 ] 
+                    Case 3
+                        Peso = Mat[ i ][ 3 ] 
+                    Case 4
+                       Raza = Mat[ i ][ 4 ] 
+                }
+            }
+            Escribir Reg_Caballos
+        }
+    }
+Cerrar Caballos
+
+Abrir(Caballos, "r")
+Leer reg_cababllos
+
+int velocidades [] = new int[50];
+int sizeVel = 0
+int sizeNum = 0
+int sw = 0
+int i=0
+int numCab []= new int[50]
+int vecVel [] = new int[50]
+
+//Aquí avanzo en posicion gracias al contador sizeNuM lo que haces 
+es asignarle en la posicion sizeNuM el valor de la velocidad de ese 
+ganador 
+
+while (!EndOfFile(Caballos)) {
+Abrir(Ganadores, "r") 
+    Leer reg_ganadores
+
+    while (!EndOfFile(Ganadores)) {
+        if (Caballos.numCab == Ganadores.numCab) {
+            velocidades[sizeNum] = velocidades[sizeNum] + DistRec/Temp
+            sizeNum ++
+        }
+        Leer reg_ganadores
+    }
+Cerrar Ganadores
+
+Leer reg_caballos
+}
+
+EndOfFile Ganadores
+EnfOfFile Caballos
+
+
+//Aquí usaremos el for para recorrerlo con eltamaño del vector velocidad
+y aqui le asignaremos el valor de menor velocidad relacionandolo con su 
+posicion para que queden ambos relacionados y no haya una confucion de
+posiciones 
+
+
+int menorVel = velocidades[0]
+int posicionMenor = 0
+int i
+for ( i=1 ; i<velocidades.length ; i++) {
+    if (menorVel > velocidades[i]) {
+        menorVel = velocidades[i]
+        posicionMenor = i
+    }
+}
+
+
+//Aquí vamos a mostrar la informacion del caballo con menor velocidad 
+haciendo uso de la variable posicionMenor que usamos anteriormete
+
+Abrir(Caballos, "r")
+Leer reg_caballos
+int j = 0
+while (!EndOfFile(Caballos)){
+    if (posicionMenor == j) {
+    Escribir informacionDelCaballo
+    }
+    j++
+Escribir reg_caballos
+}
+
+EndOfFile Caballos
+ss
+FinAlgoritmo
+
+
+
