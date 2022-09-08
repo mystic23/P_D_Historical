@@ -1,13 +1,9 @@
 package Punto_1_1.Java;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-
 
 
 public class prueba2 {
@@ -49,84 +45,81 @@ public class prueba2 {
 
     public static void velocidad(){
         try {
-            //Ganadores
-            BufferedReader ganadores = new BufferedReader(new FileReader("Ganadores.txt"));
-            String lineas_ganadores = ganadores.readLine();
 
-            //Caballos
-            BufferedReader caballos = new BufferedReader(new FileReader("Caballos.txt"));
-            String lineas_caballos = caballos.readLine();
+            BufferedReader Registro_Ganadores = new BufferedReader(new FileReader("Ganadores.txt"));
+            String Linea_Ganadores = Registro_Ganadores.readLine();
+
+
+            BufferedReader Registro_Caballos = new BufferedReader(new FileReader("Caballos.txt"));
+            String Linea_Caballos = Registro_Caballos.readLine();
+
+            float total_velocidades = 0;
+            float total_caballo=0;
+
+            float velocidad_minima = Float.POSITIVE_INFINITY;
+            String nombre_caballo = " ";
+
+            while (Linea_Caballos!=null) {
+                float v_carrera = 0;
+
+                String dataCaballo[] = Linea_Caballos.split(",");
+                String dataGanadores[] = Linea_Ganadores.split(",");
             
+                String N_caballo_C = dataCaballo[0]; 
+                String N_caballo_G = dataGanadores[2];
 
-            //vector velocidades 
-            float velocidades [] = new float[50];
+                if (N_caballo_C.equals(N_caballo_G)) {
 
-            //contador de posicion
-            int cont = 0;
-            while(lineas_caballos!=null){
-                
-                String v_caballo[]= lineas_caballos.split(",");
-                String v_ganadores[] = lineas_ganadores.split(",");
-
-                //esta comparacion la hago para verificar que el caballo que esta en la lista de caballos
-                //esta dentro de la lista de ganadores y que calcule de una vez de acuerdo a su posicion
-                //la sumatoria total de sus velocidades durante todo el torneo
-                if(v_caballo[0]==v_ganadores[2]){
-                    velocidades[cont] = velocidades[cont]+(Float.parseFloat(v_ganadores[3])/ Float.parseFloat(v_ganadores[4]));
-                    cont++;
-                    System.out.println("la velocidad de " + v_caballo[1] + " es de: " );
+                    v_carrera+=(float) (Float.parseFloat(dataGanadores[3])/Float.parseFloat(dataGanadores[4]));
+                    total_velocidades+= v_carrera;
+                    total_caballo+=v_carrera;
+                    //System.out.println("la velocidad de " + dataCaballo[1] + " es de " + v_carrera +" en la carrera " + dataGanadores[0] );
+                                   
                 }
-                lineas_ganadores = ganadores.readLine();
-             
+                Linea_Ganadores = Registro_Ganadores.readLine();
+                
+                if (Linea_Ganadores == null) {
+                    if (total_caballo<velocidad_minima & total_caballo!=0) {
+                        if (total_caballo > 0 ) {
+                            velocidad_minima = total_caballo;
+                            nombre_caballo = dataCaballo[1]; 
+                            
+                        }
+                       
+                    }
+                    
+                    System.out.println("la velocidad total de " + dataCaballo[1] + " es de " + total_caballo);
+                    Registro_Ganadores.close();
+                    Registro_Ganadores = new BufferedReader(new FileReader("Ganadores.txt"));
+                    Linea_Ganadores = Registro_Ganadores.readLine();
+                    Linea_Caballos = Registro_Caballos.readLine();
+                    total_caballo = 0;
+                }
+                
+               // System.out.println(" La velocidad total es de: " + total_velocidades);
+                //System.out.println("El caballo con menor velocidad  es " + dataCaballo[1] );
+
                 
             }
-            float menorVel = velocidades[0];
-            int posicionMenor = 0;
-
-            for (int a=0 ; a<velocidades.length ; a++) {
-                if (menorVel > velocidades[a]) {
-                    menorVel = velocidades[a];
-                    posicionMenor = a;
-                }
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+           
+            System.out.println("el caballo con menor velocidad es " + nombre_caballo );
+            Registro_Caballos.close();   
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("El archivo no pudo ser abierto " +  e );
         }
-
-
 
     }
 
-   
 
     public static void main(String [] args) {
         //primera parte 
         lectura_mostrar("Ganadores");
         lectura_mostrar("Caballos");
 
-       //mostrar la velocidad del caballo
-       velocidad();
+        //mostrar la velocidad del caballo
+        velocidad();
+
+        //Ordenar Caballos 
 
     }
 
