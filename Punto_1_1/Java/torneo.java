@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class torneo {
     
@@ -15,13 +16,13 @@ public class torneo {
     public static void main(String[] args) throws FileNotFoundException {
         File Caballos = new File("Caballos.txt");
         File Ganadores = new File("Ganadores.txt");
-        // String Num_Caballo= "", Peso="", Nombre="", Raza="";
+        String Num_Caballo= "", Peso="", Nombre="", Raza="";
 
         
          try {
             BufferedReader Ca = new BufferedReader(new FileReader(Caballos));
             int i=0;
-
+            
             String Mat[][] = new String[5][4];
             String bfread=null;
 
@@ -33,7 +34,7 @@ public class torneo {
                 Mat[i][2]= valor[2];
                 Mat[i][3]= valor[3];
                 
-                i =i+1;
+                i++;
 
             }
             Ca.close();
@@ -59,10 +60,101 @@ public class torneo {
                     }
                 }
             }
+
+
+            FileWriter fw = new FileWriter(Caballos);
+            BufferedWriter bw = new BufferedWriter(fw);
+            FileReader fr = new FileReader(Caballos);
+            BufferedReader br = new BufferedReader(fr);
+
+
             
-         
+            while((bfread = br.readLine())!=null) {
+                for (int  k=1 ; k <= i; k++){
+                    for (int j=1; j <= 4; j++){
+                       
+                        switch(j) {
+                            case 1:
+                                Num_Caballo = Mat[ i ][ 0 ] ;
+                            case 2:
+                                Nombre = Mat[ i ][ 1 ] ;
+                            case 3:
+                                Peso = Mat[ i ][ 2 ] ;
+                            case 4:
+                               Raza = Mat[ i ][ 3 ] ;
+                        }
+                    }
+                   
+                }
+                
+                 
+            }
+            br.close();
+            fr.close();
+            fw.close();
+            bw.close();
+            
+            FileReader fr1 = new FileReader(Caballos);
+            BufferedReader br1 = new BufferedReader(fr1);
+
+            String velocidades [] = new String[50];
+            int sizeVel = 0;
+            int sizeNum = 0;
+            int sw = 0;
+            int c=0;
+            int numCab []= new int[50];
+            int vecVel [] = new int[50];
+
+            while((bfread = br1.readLine())!=null) {
+                FileReader ga = new FileReader(Ganadores);
+                BufferedReader gan = new BufferedReader(ga);
+                
+                String Gan[][] = new String[6][5];
+                
+
+
+
+                String bgread = null;
+                while((bgread = br.readLine())!=null) {
+                    String ganadores[] = bgread.split("\t");
+                    
+                    Gan[c][0]= ganadores[0];
+                    Gan[c][1]= ganadores[1];
+                    Gan[c][2]= ganadores[2];
+                    Gan[c][3]= ganadores[3];
+                    c=c++;
+                    if (Integer.parseInt(Gan[c][2]) == Integer.parseInt(Mat[c][0])) {
+                        velocidades[sizeNum]=velocidades[sizeNum] + (Integer.parseInt((Gan[c][3]))) / (Integer.parseInt((Gan[c][4])));
+                        sizeNum++;
+                    }
+                   
+
+                   }
+                    
+                    
+                     
+                }
+                
+                 
+            
+
+
+
+
+
+
+
+            
+            
+
+            br1.close();
+            fr1.close();
         } catch (Exception e) {
             // TODO: handle exception
         }
+
+
+
+
     }
 }
