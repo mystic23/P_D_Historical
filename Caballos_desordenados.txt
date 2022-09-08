@@ -1,0 +1,7 @@
+40,Palomo,500,Morgan
+30,Arrebato,350,criollo
+10,Chicharito,380,Pura Sangre
+50,Blanco,450,Pura Sangre
+20,Bombonero,420,andaluz
+
+
