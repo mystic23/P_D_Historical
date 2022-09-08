@@ -1,6 +1,6 @@
-1   Pablo   10  10  5
-1   Roman   20  10  6
-2   Roman   20  15  7
-2   Mauro   20  15  8
-3   Pablo   10  12  7
-3   Roman   20  12  9
+1,Pablo,10,10,5
+1,Roman,20,10,6
+2,Roman,20,15,7
+2,Mauro,30,15,8
+3,Pablo,10,12,7
+3,Roman,20,12,9
