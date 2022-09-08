@@ -127,13 +127,47 @@ public class torneo {
                         velocidades[sizeNum]=velocidades[sizeNum] + (Integer.parseInt((Gan[c][3]))) / (Integer.parseInt((Gan[c][4])));
                         sizeNum++;
                     }
-                   
-
-                   }
-                    
-                    
-                     
+                    gan.readLine();
                 }
+                br1.readLine();
+                gan.close();
+                ga.close();   
+                     
+            }
+
+            int menorVel = Integer.parseInt(velocidades[0]);
+            int posicionMenor = 0;
+            
+            for (int a=1 ; a<velocidades.length ; a++) {
+                if (menorVel > Integer.parseInt(velocidades[a])) {
+                    menorVel = Integer.parseInt(velocidades[a]);
+                    posicionMenor = a;
+                }
+            }
+
+            FileReader fr2 = new FileReader(Caballos);
+            BufferedReader br2 = new BufferedReader(fr2);
+
+
+            String data = null;
+            int j = 0;
+            while((data = br2.readLine())!=null) {
+                if(posicionMenor == j){
+                    System.out.println("la velocidad de: " + Num_Caballo+ " es de: " + velocidades[j]);
+                }
+                j++;
+            }
+
+
+
+
+
+
+
+
+            br2.close();
+            fr2.close();
+
                 
                  
             
