@@ -40,7 +40,7 @@ public class torneo {
             String aux;
             for (int k=0 ; k <= i; k++){
                 for (int j=0; j <= k; j++){
-                    if (Mat[j+1 ][ 1 ]  <  Mat[j][ 1 ]) {
+                    if (Integer.parseInt(Mat[j+1][1]) > Integer.parseInt(Mat[j][1])) {
                             aux = Mat[ j+1 ][ 1 ];
                             Mat[ j+1 ][ 1 ] = Mat[ j ][ 1 ];
                             Mat[ j ][ 1 ] = aux;
@@ -60,24 +60,9 @@ public class torneo {
                 }
             }
             
-        } catch (Exception e) {
-            
-        }
-        try {
-            BufferedWriter Ca = new BufferedWriter(FileWriter(Caballos);
-
-
-
-
-
+         
         } catch (Exception e) {
             // TODO: handle exception
         }
-       
-
-       
-        
-
-
     }
 }
