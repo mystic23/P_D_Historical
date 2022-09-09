@@ -1,0 +1,72 @@
+Pregunta:
+El archivo de las empresas que requieren empleo, incluyen los siguientes datos (descripción
+del puesto, salario, nombre de la empresa, título y puntaje mínimo requerido por el
+candidato en la prueba psicotécnica, cedulaempleador, emailempleador).
+Hacer un algoritmo que pida por pantalla la cedula de un candidato y busque en el archivo
+candidatos si está inscrito en la agencia de empleo y si cumple esta condición, busque en el
+archivo de las empleos, si existe la posibilidad de un trabajo o de varios para él, mostrando
+por pantalla los datos del empleo.
+
+Solución:
+
+Inicio
+Buffer
+    Candidatos
+    Dispositivo Disco
+        Reg_candidatos
+        Nombre X[]
+            Cedula N[]
+            Direccion X[]
+            Telefono N[]
+            e-mail X[]
+            Titulo X[]
+            Puntaje N[]
+Finbuffer
+Buffer
+    Empresa_empleo
+    Dispositivo Disco
+        Reg_empresa
+            Descripcion_P X[]
+            Salario N[]
+            Nombre_Empresa X[]
+            Titulo X[]
+            P_minimo N[]
+Finbuffer
+
+abrir Candidatos("r")
+abrir Empresa_empleo("r")
+
+Leer Reg_candidatos
+Leer Reg_empresa
+
+Escribir ("Ingresar la cedula del candidato ")
+Leer cedula
+
+encontrar = false
+
+
+MQ(!Eof(Candidatos) || !encontrar)
+    Si(Reg_candidatos.Cedula == cedula)
+        encontrar = true
+    Sino
+        Leer Reg_candidatos
+    FinSi
+FinMQ
+
+Si( encontrar = true )
+    Leer Reg_empresa
+    Leer Reg_candidatos
+
+    Escribir(Descripcion_P, Salario, Nombre_Empresa)
+    MQ(!Eof(Empresa_empleo))
+        si(Reg_candidatos.Puntaje >= Reg_empresa.P_minimo)
+            Escribir Reg_empresa
+        FinSi
+        Leer Reg_empresa
+    FinMQ
+Sino
+    Escribir("El candidato no está dentro del registro")
+FinSi
+
+Cerrar Candidatos
+Cerrar Empresa_empleo
