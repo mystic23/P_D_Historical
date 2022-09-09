@@ -27,19 +27,19 @@ EndBuffer
 Abrir Caballos (“r”)
 i = 0 
 
-    Leer Reg_Caballos 
-    while (!EndOfFile(Caballos)) {
+Leer Reg_Caballos 
+while (!EndOfFile(Caballos)) {
 
-        -> Lo que hago aquí es  recorrer el archivo mientras que no termine
-        y mientras eso pasa le voy asignando a cada posición su propio campo 
-        dentro de una matriz
+ -> Lo que hago aquí es  recorrer el archivo mientras que no termine
+ y mientras eso pasa le voy asignando a cada posición su propio campo 
+ dentro de una matriz
 
-        i = i +1
-        Mat[ i ][ 1 ] = Num_Caballo
-        Mat[ i ][ 2 ] = Nombre
-        Mat [ i ][ 3 ] = Peso
-        Mat[ i ][ 4 ] = Raza
-        Leer Reg_Caballos
+     i = i +1
+    Mat[ i ][ 1 ] = Num_Caballo
+    Mat[ i ][ 2 ] = Nombre
+    Mat [ i ][ 3 ] = Peso
+    Mat[ i ][ 4 ] = Raza
+    Leer Reg_Caballos
 
 }
 EndOfFile Caballos

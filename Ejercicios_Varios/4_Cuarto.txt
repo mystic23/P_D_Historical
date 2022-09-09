@@ -1,0 +1,71 @@
+Inicio
+Buffer
+    Pilotos
+    Dispositivo Disco
+        Reg_pilotos
+        Nombre X[]
+        Numero_Carro N[2]
+        Pais X[]
+Finbuffer
+Buffer
+    Carreras
+    Dispositivo Disco
+        Reg_carreras
+        Codigo_carrera N[]
+        Nombre_carrera X[]
+        N_Carros_Primeros[8] N[2]
+Finbuffer
+
+Abrir Piloto("r")
+Abrir Carreras("r")
+
+Leer Reg_pilotos
+Leer Reg_carreras
+Puntos[50]
+Num_Carro [50]
+Nom_piloto[50]
+max = 0
+nom = ""
+MQ(!Eof(Pilotos))
+    i=1
+    MQ((N_Carros_Primeros[i]!=Reg_pilotos.Numero_Carro) & i<=8)
+        i++
+        Num_Carro[i] = Numero_Carro
+        Nom_piloto[i] = Nombre
+        Leer Reg_pilotos
+    FinMQ
+    x = 0
+    MQ(!Eof(Carreras))
+        para i = 1 hasta 8 con paso 1 
+            Dd i Hacer
+                1:
+                    Puntos[i]+=10
+                2:
+                    Puntos[i]+=8
+                3:
+                    Puntos[i]+=6
+                4:
+                    Puntos[i]+=5
+                5:
+                    Puntos[i]+=4
+                6:
+                    Puntos[i]+=3
+                7:
+                    Puntos[i]+=2
+                8:
+                    Puntos[i]+=1
+            FinDd
+            x++
+            Si(max < Puntos[x])
+                max = Puntos[x]
+                nom = Nom_piloto[x]
+            FinSi
+        Finpara
+        Leer Reg_carreras
+        
+    FinMq
+
+FinMQ
+Cerrar Pilotos
+Cerrar Carreras
+Escribir(" El piloto con mas puntos es", nom, " con " , max , " punto " )
