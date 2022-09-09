@@ -1,0 +1,45 @@
+Estructura de Datos I – 2022-30
+Departamento de Ingeniería de Sistemas y Computación - Universidad del Norte
+
+1.	(2.0) Una agencia de empleo le ha encargado el diseño de un algoritmo que sirva de soporte a un servicio de búsqueda de empleo. Para esto usted cuenta con al menos dos archivos (no puede asumir que están ordenado por algún campo). 
+
+El primero (posible nombre: candidatos) que contiene los siguientes datos: cedula, nombre, dirección de vivienda, celular, email, último título adquirido y el puntaje obtenido en una prueba psicotécnica que debe aplicar antes de inscribirse como candidato).
+ 
+El segundo (posible nombre: empresas) que contiene las empresas que requieren algún tipo de persona. La información que contiene este archivo es: descripción del puesto, salario, nombre de la empresa, título del empleo, puntaje mínimo requerido por el candidato en la prueba psicotécnica, cedula empleador, email empleador). Una empresa puede tener más de una vacante registrada.
+
+Las consultas que debe hacer son:
+•	Se debe pedir por pantalla la cedula de un candidato, validar si este está inscrito a la agencia de empleo y si lo está, buscar que posibilidades de trabajo(s) hay para él. Para saber si un empleado es apto para un puesto debe tener por encima del puntaje mínimo requerido para la vacante. El resultado debe ser mostrado por pantalla.
+•	Se debe pedir por pantalla el nombre de una empresa, validar que este inscrita en la agencia de empleo y si lo está, mostrar por pantalla la información de todas las vacantes que esta tiene registrada.
+
+2.	(2.0) Una aplicación informática de un centro universitario dispone de la siguiente información sobre una carrera:
+Por cada asignatura:
+a) código de asignatura (único);
+b) nombre de la asignatura;
+c) curso;
+d) créditos;
+e) cédula del profesor que la imparte.
+
+Por cada profesor:
+a) nombre del profesor
+b) cedula;
+c) fecha de ingreso en la Universidad;
+d) fecha de nacimiento;
+e) categoría (catedrático, titular, asociado o ayudante).
+
+Usted debe definir la estructura de sus archivos y que tipo de organización usará. 
+Se requiere un algoritmo para realizar las siguientes consultas.
+
+Consultas:
+Dada una cédula, diga la información del profesor y cuáles son los nombres de las asignaturas y cursos que esté tiene a su cargo (tener en cuenta que nombre de la asignatura no es lo mismo que cursos).
+
+¿Cuál es la categoría con mayor personal en la institución?¿Cuál es la categoría que mayor sueldo tiene? ¿Cuál es el promedio salarial por categoría?. El sueldo base anual depende de la categoría:
+a) Catedrático: 20000 euros
+b) Titular: 15000 euros
+c) Asociado: 10000 euros
+d) Ayudante: 8000 euros
+
+3. (1.0) Para modificar un registro en un archivo secuencial indexado se debe.
+A.	Buscar el registro desde la primera posición y una vez encontrado modificarlo directamente.
+B.	Se puede buscar el registro de manera directa y modificarlo enseguida.
+C.	Se puede buscar el registro de manera directa, modificar en el código y reescribirlo en la misma posición.
+D.	Empezando a leer desde el primer registro hasta encontrar el registro a modificar (todos los registros anteriores se guardan en un archivo temporal), modificarlo en el código, eliminarlo y guardarlo en la última posición.
