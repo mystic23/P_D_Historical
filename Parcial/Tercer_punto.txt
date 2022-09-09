@@ -1,0 +1,11 @@
+Pregunta:
+Para modificar un registro en un archivo secuencial indexado se debe.
+A.	Buscar el registro desde la primera posición y una vez encontrado modificarlo directamente.
+B.	Se puede buscar el registro de manera directa y modificarlo enseguida.
+->>>>C.	Se puede buscar el registro de manera directa, modificar en el código y reescribirlo en la misma posición.
+D.	Empezando a leer desde el primer registro hasta encontrar el registro a modificar (todos los registros anteriores se guardan en un archivo temporal), modificarlo en el código, eliminarlo y guardarlo en la última posición.
+
+
+Respuesta 
+
+La respuesta es la C :D

@@ -1,0 +1,111 @@
+Solución 
+//Aqui empiezo con los dos archivos tanto de Candidatos como la empresa 
+//empleadora
+Inicio
+Buffer
+    Candidatos
+    Dispositivo Disco
+        Reg_candidatos
+            Nombre X[]
+            Cedula N[]
+            Direccion X[]
+            Telefono N[]
+            e-mail X[]
+            Titulo X[]
+            Puntaje N[]
+Finbuffer
+Buffer
+    Empresa_empleo
+    Dispositivo Disco
+        Reg_empresa
+            Descripcion_P X[]
+            Salario N[]
+            Nombre_Empresa X[]
+            Titulo X[]
+            P_minimo N[]
+            Cedula_Empleador N[]
+            email_empleador X[]
+           
+Finbuffer
+
+//Aqui abro como lectura los archivos y los leo
+abrir Candidatos("r")
+abrir Empresa_empleo("r")
+
+Leer Reg_candidatos
+Leer Reg_empresa
+
+
+//El ejercicio nos pide que directamente que le digamos al usuario la cedula 
+//que quiere encontrar para validar que esta este inscrita en la agencia de emppleo
+Escribir ("Ingresar la cedula del candidato ")
+Leer cedula
+
+encontrar = false
+
+//Aqui lo que hago es validar que la cedula que estamos buscando esta 
+//dentro del registro  y sino esta, directamente le decimos que la cedula 
+//no fue encontrada dentro del registro
+
+MQ(!Eof(Candidatos) || !encontrar)
+    Si(Reg_candidatos.Cedula == cedula)
+        encontrar = true
+    Sino
+        Leer Reg_candidatos
+        Escribir("la cedula del candidato no ha sido encontrada")
+    FinSi
+FinMQ
+
+//Aqui uso el booleano que llame anteriormente, porque si este entro dentro
+//de la condicion entonces es true y si es true podemos mostrar la informacion
+del puntaje que esta dentro del registro
+Si( encontrar == true )
+    Leer Reg_empresa
+    Leer Reg_candidatos
+
+    //Escribir(Descripcion_P, Salario, Nombre_Empresa)
+    MQ(!Eof(Empresa_empleo) && !Eof(Candidatos))
+        si(Reg_candidatos.Puntaje >= Reg_empresa.P_minimo)
+            Escribir Reg_empresa
+            Escribir("El candidato " + Nombre + " con el puntaje de " + Puntaje + " puntos, es 
+                    apto para el trabajo")
+        FinSi
+        Leer Reg_empresa
+    FinMQ
+Sino
+    Escribir("El candidato no está dentro del registro")
+FinSi
+
+Cerrar Candidatos
+Cerrar Empresa_empleo
+
+Abrir Empresa_empleo("r")
+Leer Reg_empresa
+
+//El ejercicio dice que pidamos por consola el nombre de la empresa
+Escribir(" Ingrese el nombre del empresa")
+Leer NombreEmpresa
+
+//aqui verificamos que el nombre de la empresa este dentro del archivo
+y si lo esta mostramos la informacion de la vacante :D 
+
+MQ(!Eof(Empresa_empleo) )
+    Si(Reg_empresa.Nombre_Empresa == NombreEmpresa)
+        Leer Reg_empresa
+        //aqui muestro la informacion de la vacante y como va a recorrer
+        //todo el archivo hasta que lo lea completamente mostrara toda
+        //la informacion de las vacantes :D
+        Escribir(Descripcion_P, Salario, Nombre_Empresa, P_minimo)
+    Sino
+        //aqui pos sino esta f :v
+        Leer Reg_empresa
+        Escribir("La empresa que quiere encontrar no esta registrada
+                en la agencia de empleo")
+    FinSi
+FinMQ
+Cerrar Empresa_empleo
+
+Fin
+
+
+
