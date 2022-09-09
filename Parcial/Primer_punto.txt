@@ -62,8 +62,7 @@ del puntaje que esta dentro del registro
 Si( encontrar == true )
     Leer Reg_empresa
     Leer Reg_candidatos
-
-    //Escribir(Descripcion_P, Salario, Nombre_Empresa)
+    
     MQ(!Eof(Empresa_empleo) && !Eof(Candidatos))
         si(Reg_candidatos.Puntaje >= Reg_empresa.P_minimo)
             Escribir Reg_empresa
