@@ -9,7 +9,7 @@ import java.io.LineNumberReader;
 import java.io.PrintWriter;
 
 
-public class prueba2 {
+public class torneo {
     static File Caballos = new File("Caballos.txt");
     static File Ganadores = new File("Ganadores.txt");
     
