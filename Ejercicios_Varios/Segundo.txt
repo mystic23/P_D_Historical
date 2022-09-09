@@ -1,0 +1,63 @@
+
+Inicio
+Buffer
+    Info_Locales
+    Dispositivo Disco
+        Reg_info
+        Numero N[2]
+        Area N[1.2]
+        V_Mensual_Admin N[10.2]
+        Nombre_dueño X[30]
+        Tipo N[1]
+Finbuffer
+Buffer
+    Gastos
+    Dispositivo Disco
+        Reg_gastos
+        NumL N[2]
+        Descripcion X[20]
+        Dia N[2]
+        Valor N[8.2]
+Finbuffer
+
+Abrir Info_Locales ("r")
+Abrir Gastos ("r")
+
+Leer Reg_info
+Leer Reg_gastos
+
+Total_Pago = 0
+
+Escribir(Numero, Nombre_dueño, V_Mensual_Admin)
+MQ(!Eof(Info_Locales) || !Eof(Gastos))
+    Suma_Total = 0
+    Suma_Total += V_Mensual_Admin
+    
+    Si(Numero != NumL )
+        Escribir (Numero, Nombre_dueño, V_Mensual_Admin)
+        Sino
+            MQ((NumL = Numero) && !Eof(Gastos))
+                Suma_Total += V_Mensual_Admin
+                Leer Reg_gastos
+            FinMQ
+            Leer Reg_info
+            Total_Pago += Suma_Total
+    FinSi
+FinMQ
+
+Cerrar Info_Locales
+Cerrar Gastos
+
+Fin
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,7 +30,7 @@ Leer cedula
 //Aquí lleno el vector del 1 al 4, esto se usara para las categorias
 
 Para i = 1 hasta 4
-    C[i] = 0
+    C[i] = i
 Finpara
 
 //Aqui lo que hacemos es que, primero no tenemos que recorrer todo 

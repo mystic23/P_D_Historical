@@ -1,0 +1,86 @@
+Pregunta
+Se dispone de dos archivos secuenciales F1 y F2 que contiene cada uno de ellos los mismos
+campos. Los dos archivos están ya creados y ordenados en forma ascendente por un campo
+llamado codigo.
+Hacer un algoritmo para crear un archivo C a partir de F1 y F2, que contenga los registros
+comunes a ambos archivos y crear un archivo D que contenga los registros que no son
+comunes a F1 y a F2.
+
+
+Solución
+Inicio
+Buffer
+    F1
+    Dispositivo Disco
+        Reg_F1
+        CodigoF1 N[] 
+Finbuffer
+Buffer
+    F2
+    Dispositivo Disco
+        Reg_F2
+        CodigoF2 N[] 
+Finbuffer
+Buffer
+    C
+    Dispositivo Disco
+        Reg_C
+        CodigoC N[] 
+Finbuffer
+Buffer
+    D
+    Dispositivo Disco
+        Reg_D
+        CodigoD N[] 
+Finbuffer
+
+Abrir F1 ("r")
+Abrir F2 ("r")
+Abrir C ("w")
+Abrir D ("w")
+
+Leer F1
+Leer F2
+
+MQ((!EoF(F1)) && (!EoF(F2)))
+    Si( CodigoF1 == CodigoF2)
+       Reg_C = Reg_F1 
+       Escribir Reg_C
+       Leer Reg_F1
+       Leer Reg_F2
+    Sino
+        Si(CodigoF1 < CodigoF2)
+            Reg_D = Reg_F1
+            Escribir Reg_D
+            Leer Reg_F1
+        Sino
+            Si(CodigoF1 > CodigoF2)
+                Reg_D=Reg_F2
+                Escribir Reg_D
+                Leer Reg_F2
+            FinSi
+        FinSi
+    FinSi
+FinMQ 
+
+MQ(!EoF(Reg_F1))
+    Reg_D = Reg_F1
+    Escribir Reg_D
+    Leer Reg_F1
+FinMQ
+
+MQ(!Eof(Reg_F2))
+    Reg_D = Reg_F2
+    Escribir Reg_D
+    Leer Reg_F2
+FinMQ
+
+
+Cerrar Reg_F1,Reg_F2,Reg_C,Reg_D
+
+Fin
+
+
+
+
+
