@@ -142,17 +142,18 @@ public class prueba2 {
         try {
             BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt")); // Abre archivo
             String line = null;
-
+            
             int i = 0;
             while ((line = br.readLine()) != null) { // Copia contenido 
                 data[i] = line;
                 i++;
+               
             }
-            if (file_name.equals("Caballos")) {
-                bubble2(data); // Sort data to Sort lines
-            } else {
-                bubble(data);
-            }
+            
+            if (file_name == "xd") {
+                bubble(data); // Sort data to Sort lines
+                
+            } 
 
             br.close(); // Cierra Archivo
 
@@ -188,10 +189,14 @@ public class prueba2 {
         while (swapped) {
             pairs = pairs - 1;
             swapped = false;
+           
             for (int i = 0; i < pairs; i++) {
-                int x = Integer.valueOf(ls[i].split("\t")[0]);
+                
+                int x = Integer.valueOf(ls[i].split(",")[0]);
+                
                 // Entero del primer elemento del split del i/j -esimo elemento del arreglo
-                int y = Integer.valueOf(ls[i + 1].split("\t")[0]);
+                int y = Integer.valueOf(ls[i + 1].split(",")[0]);
+                
                 if (x > y) {
                     sw(ls, i, (i + 1));
                     swapped = true;
@@ -199,27 +204,7 @@ public class prueba2 {
             }
         }
     }
-    public static void bubble2(String[] ls) {
-        
-        int pairs = ls.length;
-        boolean swapped = true;
-        while (swapped) {
-            pairs = pairs - 1;
-            swapped = false;
-            for (int i = 0; i < pairs; i++) {
-                int x = Integer.valueOf(ls[i].split("\t")[0]);
-                int y = Integer.valueOf(ls[i + 1].split("\t")[0]);
-                int x2 = Integer.valueOf(ls[i].split("\t")[2]);
-                int y2 = Integer.valueOf(ls[i + 1].split("\t")[2]);
-                if ((x > y) || ((x == y) && x2 > y2)) {
-                    sw(ls, i, (i + 1));
-                    swapped = true;
-                }
-            }
-        }
-    }
-
-
+    
     public static void main(String [] args) {
         //primera parte 
         lectura_mostrar("Ganadores");
@@ -229,7 +214,7 @@ public class prueba2 {
         velocidad();
 
         //Ordenar Caballos 
-        sortF("Caballos_desordenados");
+        sortF("xd");
         
 
     }
