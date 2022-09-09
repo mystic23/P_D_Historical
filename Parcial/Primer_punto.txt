@@ -62,7 +62,7 @@ del puntaje que esta dentro del registro
 Si( encontrar == true )
     Leer Reg_empresa
     Leer Reg_candidatos
-    
+
     MQ(!Eof(Empresa_empleo) && !Eof(Candidatos))
         si(Reg_candidatos.Puntaje >= Reg_empresa.P_minimo)
             Escribir Reg_empresa
@@ -71,8 +71,6 @@ Si( encontrar == true )
         FinSi
         Leer Reg_empresa
     FinMQ
-Sino
-    Escribir("El candidato no está dentro del registro")
 FinSi
 
 Cerrar Candidatos
@@ -96,7 +94,7 @@ MQ(!Eof(Empresa_empleo) )
         //la informacion de las vacantes :D
         Escribir(Descripcion_P, Salario, Nombre_Empresa, P_minimo)
     Sino
-        //aqui pos sino esta f :v
+        //aqui pos sino esta f 
         Leer Reg_empresa
         Escribir("La empresa que quiere encontrar no esta registrada
                 en la agencia de empleo")
