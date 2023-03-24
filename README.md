@@ -1,5 +1,5 @@
 # P_D_Historical
-Aquí resolveré los parciales históricos
+Parciales - Estructura de datos 1 - 2022-02
 
 
 # diosito
